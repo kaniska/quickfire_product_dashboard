@@ -1,0 +1,133 @@
+nav.navbar.navbar-default.navbar-static-top(role='navigation', style='margin-bottom: 0;')
+    .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        img(src='css/walmart_logo.png') a.navbar-brand(href='dashboard')
+        img(src='css/revcycler.png') a.navbar-brand(href='dashboard')
+        img(src='css/walmart_logo.png') a.navbar-brand(href='dashboard')
+      ul.nav.navbar-top-links.navbar-right
+        li.dropdown
+          a.dropdown-toggle(data-toggle='dropdown', ng-href='{{location}}')
+            i.fa.fa-envelope.fa-fw
+            i.fa.fa-caret-down
+          ul.dropdown-menu.dropdown-messages
+            li(ng-repeat='message in inbox')
+              a(ng-href='{{location}}')
+                div
+                  strong {{message.Name}}
+                  span.pull-right.text-muted
+                    em {{Datefn(message.Date)}}
+                div
+                  | {{TruncMessage(message.Message)}}
+               hr
+            li(ng-show='inbox.length > 2')
+              a.text-center(ng-href='{{location}}')
+                strong Read All Messages 
+                i.fa.fa-angle-right
+        li.dropdown
+          a.dropdown-toggle(data-toggle='dropdown', ng-href='{{location}}')
+            i.fa.fa-tasks.fa-fw
+            i.fa.fa-caret-down
+          ul.dropdown-menu.dropdown-tasks
+            li(ng-repeat='process in processes')
+              a(ng-href='{{location}}')
+                div
+                  p
+                    strong {{process.Name}}
+                    span.pull-right.text-muted {{process.Completed}}% Complete
+                  .progress.progress-striped.active
+                    .progress-bar(class='progress-bar-{{process.Type}}', role='progressbar', aria-valuenow='{{process.Completed}}', aria-valuemin='0', aria-valuemax='100', style='width: {{process.Completed}}%;')
+                      span.sr-only {{process.Completed}}% Complete (success)
+              hr
+            li(ng-show='processes.length > 2')
+              a.text-center(ng-href='{{location}}')
+                strong See All Tasks 
+                i.fa.fa-angle-right
+        li.dropdown
+          a.dropdown-toggle(data-toggle='dropdown', ng-href='{{location}}')
+            i.fa.fa-bell.fa-fw
+            i.fa.fa-caret-down
+          ul.dropdown-menu.dropdown-alerts
+            li
+              a(ng-href='{{location}}')
+                div
+                  i.fa.fa-comment.fa-fw
+                  | New Comment
+                  span.pull-right.text-muted.small 4 minutes ago
+            li.divider
+            li
+              a(ng-href='{{location}}')
+                div
+                  i.fa.fa-twitter.fa-fw
+                  | 3 New Followers
+                  span.pull-right.text-muted.small 12 minutes ago
+            li.divider
+            li
+              a(ng-href='{{location}}')
+                div
+                  i.fa.fa-envelope.fa-fw
+                  | Message Sent
+                  span.pull-right.text-muted.small 4 minutes ago
+            li.divider
+            li
+              a(ng-href='{{location}}')
+                div
+                  i.fa.fa-tasks.fa-fw
+                  | New Task
+                  span.pull-right.text-muted.small 4 minutes ago
+            li.divider
+            li
+              a(ng-href='{{location}}')
+                div
+                  i.fa.fa-upload.fa-fw
+                  | Server Rebooted
+                  span.pull-right.text-muted.small 4 minutes ago
+            li.divider
+            li
+              a.text-center(ng-href='{{location}}')
+                strong See All Alerts 
+                i.fa.fa-angle-right
+        li.dropdown
+          a.dropdown-toggle(data-toggle='dropdown', ng-href='{{location}}')
+            i.fa.fa-user.fa-fw
+            i.fa.fa-caret-down
+          ul.dropdown-menu.dropdown-user
+            li
+              a(ng-href='{{location}}')
+                i.fa.fa-user.fa-fw
+                | User Profile
+            li
+              a(ng-href='{{location}}')
+                i.fa.fa-gear.fa-fw
+                | Settings
+            li.divider
+            li
+              a(ng-href='{{location}}')
+                i.fa.fa-sign-out.fa-fw
+                | Logout
+      .navbar-default.sidebar(role='navigation')
+        .sidebar-nav.navbar-collapse
+          ul#side-menu.nav
+            li.sidebar-search
+              .input-group.custom-search-form
+                input.form-control(type='text', placeholder='Search...')
+                span.input-group-btn
+                  button.btn.btn-default(type='button')
+                    i.fa.fa-search
+            li
+              a(href='dashboard')
+                i.fa.fa-dashboard.fa-fw
+                |  Dream Serenity Wedge Foam Pillow 
+                img(src='css/wedge_pillow_small.jpg') a.navbar-brand(href='dashboard')
+                span.fa.arrow
+              ul.nav.nav-second-level
+                li
+                  a(href='panels-wells') Wedge Pillow    
+            li
+              a(href='tables')
+                i.fa.fa-dashboard.fa-fw
+                |  Cream Of Wheat: Whole Grain Hot Cereal
+                img(src='css/oatmeal_small.jpg') a.navbar-brand(href='tables')

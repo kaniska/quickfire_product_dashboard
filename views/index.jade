@@ -1,0 +1,39 @@
+extends layout
+
+block body
+  div#wrapper
+    div(ng-controller='AppCtrl')
+      include navigation
+      #page-wrapper
+        .row
+          .col-lg-12
+            h1.page-header {{name}}
+
+        div(ng-view)
+
+        div
+           | Recycle Reviews to Grow Revenue and Customer Retention app: v
+          span(app-version)
+
+  script(src='js/lib/angular/angular.min.js')
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')
+  
+  // jQuery
+  script(src='js/lib/jquery/jquery-2.1.1.min.js')
+  
+  // ngTables
+  script(src='js/lib/angular/lib/ng-table.min.js')
+  link(rel='stylesheet', href="/css/ng-table.css")
+  
+  // Bootstrap
+  script(src='sb-admin-2/js/bootstrap.min.js')
+  
+  // Metis Menu Plugin Js
+  script(src='sb-admin-2/js/plugins/metisMenu/metisMenu.min.js')
+  
+  //Custom Theme Js
+  script(src='sb-admin-2/js/sb-admin-2.js')
